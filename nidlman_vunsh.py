@@ -6,8 +6,6 @@ match_bonus = 0
 
 read1 = ['T', 'C', 'G', 'T']
 read2 = ['A', 'T', 'C', 'A', 'G', 'T'] #результат должен выглядеть както так
-git clone https://github.com/Alrast/mipt_2023_bioinfo_project
-w
 # здесь работает нидлман вунш и переводит строки в матрицу (Горшенина Полина)
 #            T C G T
 matrix = [[0,1,2,3,4], #
