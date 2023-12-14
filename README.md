@@ -7,13 +7,16 @@
 gap_penalty = 0.5*mismatch_penalty 
 
 Input: 1.fa 2.fa 
+
 Output: Alignment
 
 Sample_input: 
 >1 
 TCGT 
 >2 
-ATCAGT 
+ATCAGT
+
+
 Sample_output: 
 _TC_GT 
 ATCAGT 
