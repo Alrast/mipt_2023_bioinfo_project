@@ -5,9 +5,19 @@ gap_penalty = 0.5*mismatch_penalty
 match_bonus = 0
 
 # здесь вводятся FASTA файлы  и преобразуются в строки/массивы (Олег Масенков)
-
-read1 = ['T', 'C', 'G', 'T']
-read2 = ['A', 'T', 'C', 'A', 'G', 'T'] #результат должен выглядеть как-то так
+def reading_from_fasta_file(path_to_file):
+    sequence = ""
+    with open(path_to_file, 'r') as f:
+        for line in f:
+            if line[0] not in [";", ">"]:
+                sequence += line.strip()
+    return sequence
+print("Write the name of fasta file with sequence 1.")
+path1 = input()
+print("Write the name of fasta file with sequence 2.")
+path2 = input()
+read1 = reading_from_fasta_file(path1)
+read2 = reading_from_fasta_file(path2)
 
 # здесь работает нидлман вунш и переводит строки в матрицу (Горшенина Полина)
 ##            T C G T
