@@ -1,13 +1,45 @@
 # coding: utf-8
+import os.path
+import sys
 from algo import needl_wunsh
+
 mismatch_penalty = 2
 gap_penalty = 0.5*mismatch_penalty
 match_bonus = 0
 
-# здесь вводятся FASTA файлы  и преобразуются в строки/массивы (Олег Масенков)
 
-read1 = ['T', 'C', 'G', 'T']
-read2 = ['A', 'T', 'C', 'A', 'G', 'T'] #результат должен выглядеть как-то так
+
+# здесь вводятся FASTA файлы  и преобразуются в строки (Олег Масенков)
+def reading_from_fasta_file(path_to_file):
+    sequence = ""
+    if os.path.exists(path_to_file): # если такой путь есть в системе
+        if os.path.isfile(path_to_file): # если этот путь указывает на файл (а не на папку)
+            if path_to_file[-3:]!='.fa':
+                print('Это не fasta файл, но я попробую его обработать')
+            with open(path_to_file, 'r') as f:
+                for line in f:
+                    if line[0] not in [";", ">"]:
+                        sequence += line.strip()
+            if sequence=='':
+                print('В файле нет последовательности')
+                sys.exit()
+            return sequence
+        else:
+            print('Это не файл!')
+            sys.exit()
+    else:
+        print('Не могу найти файл')
+        sys.exit()
+
+#print("Write the name of fasta file with sequence 1.")
+path1 = input('1 ')
+read1 = reading_from_fasta_file(path1)
+
+#print("Write the name of fasta file with sequence 2.")
+path2 = input('2 ')
+read2 = reading_from_fasta_file(path2)
+
+
 
 # здесь работает нидлман вунш и переводит строки в матрицу (Горшенина Полина)
 ##            T C G T
