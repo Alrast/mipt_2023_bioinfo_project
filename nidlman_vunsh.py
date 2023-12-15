@@ -8,7 +8,6 @@ gap_penalty = 0.5*mismatch_penalty
 match_bonus = 0
 
 
-
 # здесь вводятся FASTA файлы  и преобразуются в строки (Олег Масенков)
 def reading_from_fasta_file(path_to_file):
     sequence = ""
